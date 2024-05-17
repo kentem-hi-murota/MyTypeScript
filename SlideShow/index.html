@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Slide show</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <main>
-        <img src="./pic0.png">
-        <button>←</button>
-        <button>→</button>
-
-        <img src="pic0.png">
-        <img src="pic1.png">
-        <img src="pic2.png">
+        <img src="./pic0.png" width="256" height="192">
+        <div class="container">
+            <button>←</button>
+            <button>→</button>
+        </div>
+        <div class="container">
+            <img src="pic0.png" width="80" height="60" class="thumbnail active">
+            <img src="pic1.png" width="80" height="60" class="thumbnail">
+            <img src="pic2.png" width="80" height="60" class="thumbnail">
+        </div>
     </main>
     <script src="main.js"></script>
 </body>
+
 </html>
