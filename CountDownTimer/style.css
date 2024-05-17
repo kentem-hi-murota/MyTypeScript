@@ -1,0 +1,48 @@
+@charset "utf-8";
+
+body{
+    background: #FDD000;
+}
+
+main{
+    width: 320px;
+    background: white;
+    margin: 0 auto;
+    text-align: center;
+    padding: 24px;
+}
+
+p{
+    background: lightgrey;
+    margin: 0;
+    padding: 32px 0;
+    font-size: 32px;
+}
+
+button{
+    all: unset;
+    background: #FDD000;
+    width: 100%;
+    margin-top: 16px;
+    padding: 16px 0;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover{
+    opacity: 0.7;
+}
+
+button:active{
+    opacity: 0.4;
+}
+
+.inactive{
+    background: black;
+    cursor: default;
+}
+
+.inactive:hover {
+    opacity: 1;
+}
