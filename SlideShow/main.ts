@@ -14,12 +14,12 @@
 
     previousButton?.addEventListener('click', () => {
         thumbnails[activeIndex]?.classList.remove('active');
-        activeIndex = activeIndex<=0? thumbnails.length-1 : activeIndex-1;
+        activeIndex = activeIndex <= 0 ? thumbnails.length - 1 : activeIndex - 1;
         thumbnails[activeIndex]?.classList.add('active');
         if (mainImage) mainImage.src = thumbnails[activeIndex].src;
     });
 
-    thumbnails.forEach((thumbnail:HTMLImageElement|null, index:number) => {
+    thumbnails.forEach((thumbnail: HTMLImageElement | null, index: number) => {
         thumbnail?.addEventListener('click', () => {
             thumbnails[activeIndex]?.classList.remove('active');
             activeIndex = index;
