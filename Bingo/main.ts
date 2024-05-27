@@ -1,5 +1,5 @@
 {
-    let columns: string[][] = [[]];
+    const transpose = (array: string[][]) => array[0].map((_, c) => array.map(r => r[c]));
 
     function createColumn(col: number): string[] {
         const source: number[] = [...Array(15)].map((_, i) => i + (col * 15) + 1);
@@ -10,21 +10,26 @@
         return column;
     }
 
-    const transpose = (array: string[][]) => array[0].map((_, c) => array.map(r => r[c]));
-
-    for (let i = 0; i < 5; i++) {
-        columns[i] = createColumn(i);
-    }
-    columns[2][2] = 'FREE';
-    columns = transpose(columns);
-
-    for (let i = 0; i < 5; i++) {
-        const tr: HTMLTableRowElement = document.createElement('tr');
-        for (let j = 0; j < 5; j++) {
-            const td: HTMLTableCellElement = document.createElement('td');
-            td.textContent = columns[i][j];
-            tr.appendChild(td);
+    function createColumns(): string[][]{
+        const columns: string[][] = [[]];
+        for (let i = 0; i < 5; i++) {
+            columns[i] = createColumn(i);
         }
-        document.querySelector('tbody')?.appendChild(tr);
+        columns[2][2] = 'FREE';
+        return transpose(columns);
     }
+
+    function renderBingo(columns:string[][]):void{
+        for (let i = 0; i < 5; i++) {
+            const tr: HTMLTableRowElement = document.createElement('tr');
+            for (let j = 0; j < 5; j++) {
+                const td: HTMLTableCellElement = document.createElement('td');
+                td.textContent = columns[i][j];
+                tr.appendChild(td);
+            }
+            document.querySelector('tbody')?.appendChild(tr);
+        }
+    }
+
+    renderBingo(createColumns());
 }
