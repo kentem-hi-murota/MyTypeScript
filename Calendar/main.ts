@@ -1,12 +1,14 @@
 {
     type DateType = { date: number; isToday: boolean; isDisabled: boolean }[];
 
+    const daysPerWeek = 7;
     const today = new Date();
-    let year: number = new Date().getFullYear();
-    let month: number = new Date().getMonth();
     const previousButton: HTMLButtonElement | null = document.querySelector('#previous');
     const nextButton: HTMLButtonElement | null = document.querySelector('#next');
     const todayTextButton: HTMLTableElement | null = document.querySelector('#today');
+
+    let year: number = new Date().getFullYear();
+    let month: number = new Date().getMonth();
 
     previousButton?.addEventListener('click', () => {
         month--;
@@ -68,7 +70,7 @@
     function getCalendarTail(): DateType {
         const dates: DateType = [];
         const lastDay = new Date(year, month + 1, 0).getDay();
-        for (let i = 1; i < 7 - lastDay; i++) {
+        for (let i = 1; i < daysPerWeek - lastDay; i++) {
             dates.unshift({
                 date: i,
                 isToday: false,
@@ -87,7 +89,7 @@
 
     function renderTitle() {
         const calendarTitle: HTMLTableElement | null = document.querySelector('#title');
-        const title = `${year}/${String(month + 1).padStart(2, '0')}`.toString();
+        const title = `${year}/${String(month + 1).padStart(2, '0')}`;
         if (calendarTitle) calendarTitle.textContent = title;
     }
 
@@ -99,7 +101,7 @@
         ];
 
         const weeks: DateType[] = [];
-        const weeksCount: number = dates.length / 7;
+        const weeksCount: number = dates.length / daysPerWeek;
         for (let i = 0; i < weeksCount; i++) {
             weeks.push(dates.splice(0, 7));
         }
