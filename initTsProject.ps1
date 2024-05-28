@@ -2,8 +2,9 @@ Param(
     [switch]$html,
     [switch]$ts,
     [switch]$git,
-    [switch]$all
 )
+
+$all = -not($html -or $ts -or $git)
 
 if($html -or $all){
     if(-not(Test-Path .\index.html)){
@@ -48,6 +49,8 @@ if($git -or $all){
 node_modules/
 MyJavaScript/
 *.js
+tsconfig.json
+package.json
 "@
 }
 git init
