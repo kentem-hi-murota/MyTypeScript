@@ -1,7 +1,7 @@
 Param(
     [switch]$html,
     [switch]$ts,
-    [switch]$git,
+    [switch]$git
 )
 
 $all = -not($html -or $ts -or $git)
