@@ -1,1 +1,52 @@
 @charset "utf-8";
+
+body {
+    background: rgb(228, 237, 240);
+}
+
+main {
+    background: ghostwhite;
+    width: 360px;
+    padding: 16px;
+}
+
+.time {
+    box-sizing: border-box;
+    background: #FDD000;
+    border: 1px dashed grey;
+    font-size: 40px;
+    text-align: center;
+    margin: 0;
+    padding: 32px 0;
+    width: 100%;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    margin-top: 24px;
+}
+
+button {
+    all: unset;
+    background: #FDD000;
+    border: 1px dashed grey;
+    width: 96px;
+    height: 48px;
+}
+
+button:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+button:active{
+    opacity: 0.6;
+}
+
+button:disabled {
+    cursor: default;
+    opacity: 1;
+    background: rgb(203, 158, 0);
+}
