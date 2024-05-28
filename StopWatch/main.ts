@@ -5,12 +5,11 @@
     const resetButton: HTMLButtonElement | null = document.querySelector('#reset-button');
 
     let timerId: NodeJS.Timeout;
-    let elapsedTime: number = 0;
+    let elapsedTime = 0;
 
     startButton?.addEventListener('click', () => {
         const startTime = Date.now() - elapsedTime;
-        if (startButton) startButton.disabled = true;
-        if (stopButton) stopButton.disabled = false;
+        setButtonState(true, false, true);
         
         timerId = setInterval(() => {
             const elapsedMiliSeconds = Date.now() - startTime;
@@ -26,8 +25,19 @@
 
     stopButton?.addEventListener('click', () => {
         clearInterval(timerId);
-        if (startButton) startButton.disabled = false;
-        if (stopButton) stopButton.disabled = true;
-        if (resetButton) resetButton.disabled = false;
+        setButtonState(false, true, false)
     });
+
+    resetButton?.addEventListener('click' , () => {
+        clearInterval(timerId);
+        setButtonState(false, true, true);
+        elapsedTime = 0;
+        if (timerText) timerText.textContent = '00:00.000';
+    });
+
+    const setButtonState = (isDisableStartBtn:boolean, isDisableStopBtn:boolean, isDisableResetBtn:boolean):void => {
+        if (startButton) startButton.disabled = isDisableStartBtn;
+        if (stopButton) stopButton.disabled = isDisableStopBtn;
+        if (resetButton) resetButton.disabled = isDisableResetBtn;
+    };
 }
