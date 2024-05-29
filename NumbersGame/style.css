@@ -7,9 +7,7 @@ body{
 }
 
 #container{
-    width: 120px;
     margin: 16px auto;
-
 }
 
 #board{
@@ -30,6 +28,7 @@ body{
     height: 40px;
     margin: 5px;
     cursor: pointer;
+    user-select: none;
 
     border-radius: 4px;
     line-height: 40px;
